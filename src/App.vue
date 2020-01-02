@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  <top-header-top-vue></top-header-top-vue>
     <div id="nav">
       <router-link to="/about">About</router-link> |
       <router-link to="/register">Register</router-link> |
@@ -11,12 +12,13 @@
 </template>
 
 <script>
+import topHeaderTopVue from './components/top-header-top.vue'
 // import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'app',
   components: {
     // HelloWorld
+    topHeaderTopVue
     
   }
 }

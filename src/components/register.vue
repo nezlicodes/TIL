@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
+
 <template>
     <div class="container">
     <div class="bg-danger" v-if="error">{{ error.message }}</div>
-        <h1>Regiter</h1>
+        <h1>Register</h1>
         <form @submit.prevent="pressed">
         <div class='form-group'
         id="input-group-1"
