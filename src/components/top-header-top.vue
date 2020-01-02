@@ -1,8 +1,7 @@
 <template>
     <div>
-        Logged in 
+         
         <span v-if="loggedIn"> <button class="btn btn-info" @click="signOut()"> Sign Out</button></span>
-        <span v-else> </span>
 
        
     </div>
@@ -18,17 +17,12 @@ export default {
             loggedIn:null
         }
     },
-    created(){
-    firebase.auth().onAuthStateChanged(user => {
-        if(user) {
-            this.loggedIn = true
-            alert('logged in')
-        } else {
-            this.loggedIn = true
-            alert('logged out')
-        }
-    })
-    },
+    
+    created () { 
+  this.loggedIn = firebase.auth().currentUser || false;
+},
+    
+    
     methods: {
         signOut() {
             firebase.auth().signOut();

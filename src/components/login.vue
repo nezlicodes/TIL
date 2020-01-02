@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+    <div v-if="error" class="my-5" style="border-top: 1px solid red; border-bottom:1px solid red">
+    <span class="text-danger" > {{error.message}}</span></div>
            <h1>Login</h1>
         <form @submit.prevent="login">
         <div class='form-group'
@@ -49,7 +51,14 @@ export default {
     },
     methods: {
         async login (){
-            await firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( this.$router.replace('/secret'))
+            try {
+                await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+                this.$router.replace('/secret')
+            } catch(e) {
+                 this.error = e
+            }
+            
+                                 
         }
     }
 }
