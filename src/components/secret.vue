@@ -6,10 +6,7 @@
 
 <script>
 export default {
-    name:'Secret',
-    created() {
-        alert('Hi')
-    }
+    name:'Secret'
 }
 </script>
 

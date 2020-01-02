@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 <template>
     <div class="container">
@@ -48,8 +49,8 @@ export default {
         async pressed(){
             try {
                 
+                // eslint-disable-next-line no-unused-vars
                 const user = firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
-                alert(user)
                 this.$router.replace({name:"secret"})
             } catch(err) {
 alert(err)
