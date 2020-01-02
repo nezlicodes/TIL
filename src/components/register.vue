@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 <template>
     <div class="container">
     <div class="bg-danger" v-if="error">{{ error.message }}</div>
@@ -39,11 +40,21 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app';
+import 'firebase/auth'
 export default {
     name:'Register',
     methods:{
-        pressed(){
-            alert('sybmitted')
+        async pressed(){
+            try {
+                
+                const user = firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
+                alert(user)
+                this.$router.replace({name:"secret"})
+            } catch(err) {
+alert(err)
+            }
+            
         }
     },
     data(){
